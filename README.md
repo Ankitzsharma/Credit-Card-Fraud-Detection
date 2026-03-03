@@ -89,6 +89,38 @@ requirements.txt        # Project dependencies
 README.md               # Project documentation
 ```
 
+### 💻 User Interface (Streamlit)
+For a professional, interactive experience, we've included a Streamlit UI that connects to the FastAPI backend.
+- **Run Locally:**
+  ```bash
+  python -m streamlit run app_ui.py
+  ```
+- **Features:** 
+  - Real-time transaction risk scoring.
+  - Interactive inputs for amount and time.
+  - Expandable advanced feature (PCA) section.
+  - Visual risk categorization (Low, Medium, High).
+  - Model performance summary and business impact overview.
+
+---
+
+## 🌐 Live Demo & Deployment
+
+This project is fully containerized and ready for deployment to cloud platforms like Render, Railway, or Heroku.
+
+### 1. Build and Run via Docker
+To run both the API and the UI in a single container:
+```bash
+docker build -t fraud-detection-system .
+docker run -p 8000:8000 -p 8501:8501 fraud-detection-system
+```
+- **FastAPI API:** [http://localhost:8000](http://localhost:8000)
+- **Streamlit UI:** [http://localhost:8501](http://localhost:8501)
+
+### 2. Live Demo Deployment (Example)
+- **Render:** Connect this repository, set the build command to `pip install -r requirements.txt`, and the start command to `./start.sh`.
+- **Railway:** Similar to Render, Railway will automatically detect the Dockerfile and deploy the services.
+
 ---
 
 ## 📈 Monitoring & Maintenance Plan
@@ -119,7 +151,7 @@ README.md               # Project documentation
    ```
 3. Run the API:
    ```bash
-   uvicorn app.main:app --reload
+   python -m uvicorn app.main:app --reload
    ```
 
 ### Docker Setup
